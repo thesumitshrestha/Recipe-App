@@ -14,7 +14,7 @@ const Recipe = ({title, calories, image, time, url, healthLabels}) => {
             <li>{healthLabels}</li>
           ))}
         </p>
-        <a rel={title} target="_blank" href={url}> How to make it </a>
+        <a rel="noopener" target="_blank" href={url}> How to make it </a>
       </div>
     </div>
   );
