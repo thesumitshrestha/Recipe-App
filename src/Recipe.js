@@ -1,16 +1,21 @@
 import React from "react";
 
-const Recipe = ({title, calories, image, ingredients}) => {
+
+const Recipe = ({title, calories, image, time, url, healthLabels}) => {
   return (
-    <div>
-      <h1> {title}</h1>
-      <ol>
-        {ingredients.map(ingredient => (
-          <li> {ingredient.text}</li>
-        ))}
-      </ol>
-      <p> {calories}</p>
-      <img src={image} alt=""/>
+    <div className="card col-md-3">
+      <img className="card-img-top" src={image} alt={title}/>
+      <div className="card-body">
+        <h5 className="card-title">{title}</h5>
+        <p className="card-text"><small className="text-muted">{calories} calories</small></p>
+        <p> {time} minutes </p>
+        <p className="card-test">
+          {healthLabels.map(healthLabels => (
+            <li>{healthLabels}</li>
+          ))}
+        </p>
+        <a target="_blank" href={url}> How to make it </a>
+      </div>
     </div>
   );
 }

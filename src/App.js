@@ -14,10 +14,11 @@ const App = () => {
   useEffect(() => {
 
     const getReceipes = async () => {
-    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
-    const data = await response.json()
-    setRecipes(data.hits);
-  }
+      const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
+      const data = await response.json()
+      setRecipes(data.hits);
+      console.log(data);
+    }
     getReceipes();
   }, [query]);
 
@@ -31,20 +32,32 @@ const App = () => {
     setSearch('')
   }
   return (
-    <div className="App">
+    <div className="App container mt-5">
       <form onSubmit={getSearch} className="search-form">
-        <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
-        <button className="search-button" type="submit"> Submit</button>
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text bg-danger text-white" id="basic-addon3">Search Food</span>
+          </div>
+          <input className="form-control search-bar" type="text" value={search} onChange={updateSearch}/>
+          {/*<button className="search-button btn btn-success" type="submit"> Submit</button>*/}
+        </div>
       </form>
-      {recipes.map(recipe => (
-        <Recipe
-          key={recipe.recipe.label}
-          title={recipe.recipe.label}
-          calories={recipe.recipe.calories}
-          image={recipe.recipe.image}
-          ingredients={recipe.recipe.ingredients}
-        />
-      ))}
+      <h5 className="text-left mt-5"> Showing results for <i className="text-danger"> {query} </i></h5>
+      {recipes.length}
+      <div className="mt-2 row">
+        {recipes.map(recipe => (
+          <Recipe
+            key={recipe.recipe.label}
+            title={recipe.recipe.label}
+            calories={recipe.recipe.calories}
+            image={recipe.recipe.image}
+            ingredients={recipe.recipe.ingredients}
+            time={recipe.recipe.totalTime}
+            healthLabels={recipe.recipe.healthLabels}
+            url={recipe.recipe.url}
+          />
+        ))}
+      </div>
     </div>
   );
 }
