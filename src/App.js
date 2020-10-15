@@ -42,9 +42,15 @@ const App = () => {
           {/*<button className="search-button btn btn-success" type="submit"> Submit</button>*/}
         </div>
       </form>
-      <h5 className="text-left mt-5"> Showing results for <i className="text-danger"> {query} </i></h5>
-      {recipes.length}
-      <div className="mt-2 row">
+      <div className="d-flex-sb">
+        <div>
+          <h5 className="text-left mt-2 results"> Showing results for <i className="text-danger"> {query} </i></h5>
+        </div>
+        <div>
+          <h5 class="count"> <i className="text-danger">{recipes.length}</i> result found</h5>
+        </div>
+      </div>
+      <div className="mt-2 row recipe-container">
         {recipes.map(recipe => (
           <Recipe
             key={recipe.recipe.label}

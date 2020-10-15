@@ -1,38 +1,60 @@
-.App {
-  text-align: center;
+.d-flex-sb {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.card {
+    border: 0 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card-img, .card-img-top {
+    height: 230px;
+    object-fit: cover;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card .card-item {
+    border: 1px solid rgba(0, 0, 0, .125);
+    margin: 15px 0;
+    height: 390px;
+    transition: .4s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.App-link {
-  color: #61dafb;
+.card .card-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: .4s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card-title {
+    padding: 1.25rem;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.recipe-container {
+    padding: 20px;
+}
+
+a.button-link {
+    position: absolute;
+    bottom: 3%;
+    width: 91.5%;
+    outline: 0;
+}
+
+.count{
+    margin-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .results {
+        font-size: 14px;
+    }
+
+    .count{
+        font-size: 14px;
+    }
 }
